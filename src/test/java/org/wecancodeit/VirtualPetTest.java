@@ -36,15 +36,5 @@ public class VirtualPetTest {
 
 	}
 
-	@Test
-	public void healthShouldDecreaseBy1IfPoopLevelIsOver10() {
-
-//		int result1 = underTest.getHealth();
-//		int result2 = underTest.getPoopLevel();
-//		if(result2 >= 10) {
-//			
-//		}
-//		// assert
-//		assertEquals(10, result);
-	}
+	
 }
