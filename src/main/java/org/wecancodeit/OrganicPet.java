@@ -3,7 +3,7 @@ package org.wecancodeit;
 
 import java.util.Collection;
 
-public abstract class OrganicPet extends VirtualPet {
+public class OrganicPet extends VirtualPet {
 
 	private int hunger = 0;
 	private int thirst = 0;
@@ -65,8 +65,11 @@ public abstract class OrganicPet extends VirtualPet {
 		boredom++;
 	}
 
-	public Collection<OrganicPet> getAllOrganicPets() {
-
-		return null;
-	}
+//	public Collection<OrganicPet> getAllOrganicPets() {
+//		return orgPets.values();
+//	}
+//	public int getBoredomForPet(String petName) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 }

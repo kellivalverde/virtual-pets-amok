@@ -12,6 +12,8 @@ public class VirtualPetShelter {
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 	private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
 
+	private OrganicPet hungryPet;
+
 	public void add(VirtualPet petToAdd) {
 		pets.put(petToAdd.getPetName(), petToAdd);
 		if (petToAdd instanceof Cat) {
@@ -51,9 +53,10 @@ public class VirtualPetShelter {
 
 	// feed all Organic pets
 	public void feedAllOrganicPets() {
-		for (OrganicPet hungryPet : getAllOrganicPets()) {
-			hungryPet.feed();
+		if (hungryPet instanceof OrganicPet) {
+			((OrganicPet) hungryPet).feed(); // casting -> sets litterBox to the one in my Cat class
 		}
+
 	}
 
 	// water all Organic pets
@@ -68,6 +71,14 @@ public class VirtualPetShelter {
 		for (OrganicPet poopyPet : getAllOrganicPets()) {
 			poopyPet.cleanPoop();
 		}
+	}
+
+	// ticks all pets
+	public void tickAllPets() {
+		for (VirtualPet shelterPet : getAllPets()) {
+			shelterPet.tick();
+		}
+
 	}
 
 }

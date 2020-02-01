@@ -66,7 +66,7 @@ public class VirtualPetShelterTest {
 
 	// should return a collection of all the pets in the shelter
 	Collection<VirtualPet> allPets = underTest.getAllPets();
-	Collection<OrganicPet> orgPets = underTestOg.getAllOrganicPets();
+	Collection<OrganicPet> orgPets = underTest.getAllOrganicPets();
 
 	@Test
 	public void shouldReturnCollectionOfAllPets() {
@@ -85,7 +85,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToPlayWith1Pet() {
 		underTest.add(pet2);
-		int beforePlay = underTestOg.getBoredomForPet(pet2.getPetName());
+		int beforePlay = underTest.getBoredomForPet(pet2.getPetName());
 		underTest.playWithPet(pet2.getPetName());
 		int afterPlay = underTest.getBoredomForPet(pet2.getPetName());
 		assertTrue(afterPlay < beforePlay);

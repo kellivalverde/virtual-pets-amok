@@ -8,9 +8,9 @@ public abstract class VirtualPet {
 	private String petDescription;
 	private int health = 10;
 
-	public VirtualPet(String petNameParameter, String petDescriptionParameter, int healthPar) {
-		this.petName = petNameParameter;
-		this.petDescription = petDescriptionParameter;
+	public VirtualPet(String petNamePar, String petDescriptionPar, int healthPar) {
+		this.petName = petNamePar;
+		this.petDescription = petDescriptionPar;
 
 	}
 
