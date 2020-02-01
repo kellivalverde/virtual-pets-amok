@@ -10,8 +10,8 @@ import org.junit.Test;
 
 public class CatTest {
 
-	Cat underTest = new Cat("Name", "description", 0, 0, 0, 0);
-	Cat underTest2 = new Cat("2ndCat", "2nd description", 0, 0, 0, 0);
+	Cat underTest = new Cat("Name", "description", 10, 0, 0, 0, 0);
+	Cat underTest2 = new Cat("2ndCat", "2nd description", 10, 0, 0, 0, 0);
 
 	LitterBox litterBox = new LitterBox();
 
@@ -65,7 +65,7 @@ public class CatTest {
 		assertEquals(boredomLevel, 0);
 
 	}
-	
+
 	@Test
 	public void healthShouldIncreaseBy1AfterPlayWithLaser() {
 

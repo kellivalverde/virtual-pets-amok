@@ -1,4 +1,5 @@
 package org.wecancodeit;
+//Mod 4 : Virtual Pets Amok
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -16,6 +17,7 @@ public class VirtualPetShelterTest {
 //arrange 
 
 	private VirtualPetShelter underTest; // calling default constructor of VPS
+	private OrganicPet underTestOg;
 	private Cat pet1;
 	private Dog pet2;
 	private Cat pet3;
@@ -23,12 +25,12 @@ public class VirtualPetShelterTest {
 	@Before
 	public void setUp() { // method that sets up project so you can have objects for your test
 		underTest = new VirtualPetShelter();
-		pet1 = new Cat("MeiLing", "the big, fat, fluffy cat", 0, 0, 0, 2);
-		pet2 = new Dog("Beau", "the stocky bulldog", 3, 0, 0, 0);
-		pet3 = new Cat("Oliver", "the scruffy old gray cat", 0, 0, 1, 0);
+		pet1 = new Cat("Cleo", "the big fluffy cat", 10, 0, 0, 0, 2);
+		pet2 = new Dog("Beau", "the stocky bulldog", 10, 3, 0, 0, 0);
+		pet3 = new Cat("Oliver", "the scruffy gray cat", 10, 0, 0, 1, 0);
 	}
 
-	// allow intakes (add pet)
+// allow intakes (add pet)
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -39,7 +41,7 @@ public class VirtualPetShelterTest {
 		assertThat(retrievedAccount, is(pet1));
 	}
 
-	// allow adoption(remove pet)
+// allow adoption(remove pet)
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -62,18 +64,9 @@ public class VirtualPetShelterTest {
 		assertThat(retrievedAccount, is(pet1));
 	}
 
-	// play with one pet - takes a name
-
-	@Test
-	public void shouldBeAbleToPlayWith1Pet() {
-		underTest.add(pet2);
-		int beforePlay = underTest.getBoredomForPet(pet2.getPetName());
-		underTest.playWithPet(pet2.getPetName());
-		int afterPlay = underTest.getBoredomForPet(pet2.getPetName());
-		assertTrue(afterPlay < beforePlay);
-	}
-
 	// should return a collection of all the pets in the shelter
+	Collection<VirtualPet> allPets = underTest.getAllPets();
+	Collection<OrganicPet> orgPets = underTestOg.getAllOrganicPets();
 
 	@Test
 	public void shouldReturnCollectionOfAllPets() {
@@ -81,15 +74,26 @@ public class VirtualPetShelterTest {
 		underTest.add(pet2);
 		underTest.add(pet3);
 
-		Collection<VirtualPet> allPets = underTest.getAllPets();
 		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
 		assertEquals(3, allPets.size());
 
 	}
 
+// play with one pet - takes a name
+
+//move to Organic Pet? 
+	@Test
+	public void shouldBeAbleToPlayWith1Pet() {
+		underTest.add(pet2);
+		int beforePlay = underTestOg.getBoredomForPet(pet2.getPetName());
+		underTest.playWithPet(pet2.getPetName());
+		int afterPlay = underTest.getBoredomForPet(pet2.getPetName());
+		assertTrue(afterPlay < beforePlay);
+	}
+
 	// feed all pets
 	@Test
-	public void shouldFeedAllPets() {
+	public void shouldFeedAllOrganicPets() {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);
@@ -98,7 +102,7 @@ public class VirtualPetShelterTest {
 		int beforeFeed2 = pet2.getHunger();
 		int beforeFeed3 = pet3.getHunger();
 
-		underTest.feedAllPets();
+		underTest.feedAllOrganicPets();
 
 		int afterFeed1 = pet1.getHunger();
 		int afterFeed2 = pet2.getHunger();
@@ -111,7 +115,7 @@ public class VirtualPetShelterTest {
 
 	// water all pets
 	@Test
-	public void shouldWaterAllPets() {
+	public void shouldWaterAllOrganicPets() {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);

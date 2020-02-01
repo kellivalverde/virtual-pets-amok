@@ -1,16 +1,18 @@
 package org.wecancodeit;
 //Mod 4: Virtual Pets Amok
 
+import java.util.Collection;
+
 public abstract class OrganicPet extends VirtualPet {
 
-	private int hunger = 0; // baby bear
+	private int hunger = 0;
 	private int thirst = 0;
 	private int boredom = 0;
 	private int poop = 0;
 
-	public OrganicPet(String petNameParameter, String petDescriptionParameter, int hungerPar, int thirstPar,
-			int boredomPar, int poopPar) {
-		super(petNameParameter, petDescriptionParameter);
+	public OrganicPet(String petNameParameter, String petDescriptionParameter, int healthPar, int hungerPar,
+			int thirstPar, int boredomPar, int poopPar) {
+		super(petNameParameter, petDescriptionParameter, healthPar);
 		this.hunger = hungerPar;
 		this.thirst = thirstPar;
 		this.boredom = boredomPar;
@@ -20,7 +22,6 @@ public abstract class OrganicPet extends VirtualPet {
 	// food
 	public int getHunger() {
 		return hunger;
-
 	}
 
 	public void feed() {
@@ -62,5 +63,10 @@ public abstract class OrganicPet extends VirtualPet {
 		thirst++;
 		poop++;
 		boredom++;
+	}
+
+	public Collection<OrganicPet> getAllOrganicPets() {
+
+		return null;
 	}
 }

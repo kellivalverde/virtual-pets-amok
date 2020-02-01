@@ -1,7 +1,7 @@
 package org.wecancodeit;
+//Mod 4 : Virtual Pets Amok
 
 import java.util.Collection;
-//Mod 4 : Virtual Pets Amok
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,18 +10,17 @@ public class VirtualPetShelter {
 	private LitterBox litterBox = new LitterBox();
 
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
+	private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
 
 	public void add(VirtualPet petToAdd) {
 		pets.put(petToAdd.getPetName(), petToAdd);
-
 		if (petToAdd instanceof Cat) {
 			((Cat) petToAdd).setLitterBox(litterBox); // casting -> sets litterBox to the one in my Cat class
 		}
 	}
 
-	public VirtualPet findPet(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	public VirtualPet findPet(String petName) {
+		return pets.get(petName);
 	}
 
 	// allow adoption(remove pet)
@@ -44,32 +43,29 @@ public class VirtualPetShelter {
 	// get all pets - return a collection of all the pets in the shelter
 	public Collection<VirtualPet> getAllPets() {
 		return pets.values();
-
 	}
 
-	// get all pets - return a collection of all the pets in the shelter
 	public Collection<OrganicPet> getAllOrganicPets() {
-		return pets.values();
-
+		return orgPets.values();
 	}
 
-	// feed all pets
+	// feed all Organic pets
 	public void feedAllOrganicPets() {
 		for (OrganicPet hungryPet : getAllOrganicPets()) {
 			hungryPet.feed();
 		}
 	}
 
-	// water all pets
+	// water all Organic pets
 	public void waterAllPets() {
 		for (OrganicPet thirstyPet : getAllOrganicPets()) {
 			thirstyPet.giveWater();
 		}
 	}
 
-	// clean up after all pets
+	// clean up after all Organic pets
 	public void cleanAllPets() {
-		for (OrganicPet poopyPet : getAllPets()) {
+		for (OrganicPet poopyPet : getAllOrganicPets()) {
 			poopyPet.cleanPoop();
 		}
 	}
