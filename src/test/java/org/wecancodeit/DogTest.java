@@ -33,6 +33,15 @@ class DogTest {
 
 	}
 
-	
-	
+	@Test
+	void healthShouldIncreaseBy1After1Walk() {
+
+		int beforeWalk = underTest.getHealth();
+		underTest.tick();
+		underTest.walk();
+		int healthLevel = underTest.getHealth();
+		assertEquals(healthLevel, beforeWalk + 1);
+
+	}
+
 }

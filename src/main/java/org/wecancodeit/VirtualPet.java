@@ -26,7 +26,7 @@ public abstract class VirtualPet {
 		return health;
 	}
 
-	protected void addHealth() {  //only able to modify within hierarchy
+	protected void addHealth() { // only able to modify within hierarchy
 		health++;
 	}
 

@@ -2,8 +2,7 @@ package org.wecancodeit;
 //Mod 4: Virtual Pets Amok
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -56,7 +55,7 @@ class OrganicPetTest {
 		int beforePlay = underTest.getThirst();
 		underTest.play();
 		int result = underTest.getThirst();
-		assertEquals(beforePlay + 1, result); //will not work if I use ++ instead of + 1 -> why?
+		assertEquals(beforePlay + 1, result); // will not work if I use ++ instead of + 1 -> why?
 	}
 
 	@Test

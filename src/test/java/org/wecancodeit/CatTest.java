@@ -3,6 +3,9 @@ package org.wecancodeit;
 //Mod 4: Virtual Pets Amok
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.Test;
 
 public class CatTest {
@@ -51,4 +54,26 @@ public class CatTest {
 
 	}
 
+	@Test
+	public void boredomShouldBe0AfterPlayWithLaser() {
+
+		underTest.getBoredom();
+		underTest.tick();
+		assertTrue(underTest.getBoredom() > 0);
+		underTest.playWithLaser();
+		int boredomLevel = underTest.getBoredom();
+		assertEquals(boredomLevel, 0);
+
+	}
+	
+	@Test
+	public void healthShouldIncreaseBy1AfterPlayWithLaser() {
+
+		int beforePlay = underTest.getHealth();
+		underTest.tick();
+		underTest.playWithLaser();
+		int healthLevel = underTest.getHealth();
+		assertEquals(healthLevel, beforePlay + 1);
+
+	}
 }

@@ -1,6 +1,6 @@
 package org.wecancodeit;
 
-public class Dog extends OrganicPet implements Walkable{
+public class Dog extends OrganicPet implements Walkable {
 
 	public Dog(String petNameParameter, String petDescriptionParameter, int hungerPar, int thirstPar, int boredomPar,
 			int poopPar) {

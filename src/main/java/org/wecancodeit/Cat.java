@@ -33,8 +33,16 @@ public class Cat extends OrganicPet {
 
 		}
 
-		//
-
 	}
 
+	public void playWithLaser() {
+		play();
+		addHealth();
+	
+		
+	}
+	
+	
+	
+	
 }
