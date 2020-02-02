@@ -40,27 +40,27 @@ public class VirtualPetShelterApp {
 
 				System.out.println("\nStatus for all pets: ");
 
-				System.out.println("Name \t | Overall Health | Hunger| Thirst|Boredom| Poop | Rust Level");
-				System.out.println("---------------------------------------------------------------------");
+				System.out.println("Name \t| Health | Hunger| Thirst|Boredom| Poop  | Rust Level");
+				System.out.println("---------------------------------------------------------------");
 
 				Collection<VirtualPet> petStats = myPets.getAllPets();
-//				Collection<OrganicPet> orgPetStats = myPets.getAllOrganicPets();
-//				Collection<RoboPet> roboPetStats = myPets.getAllRoboPets();
-				
-								
+		
 				
 				for (VirtualPet currentPet : petStats) {
 				
 					if (currentPet instanceof OrganicPet) {
-						System.out.println(currentPet.getPetName() + "\t | " + currentPet.getHealth() + "\t | "
-								+ ((OrganicPet) currentPet).getHunger() + "\t | "
-								+ ((OrganicPet) currentPet).getThirst() + "\t | "
-								+ ((OrganicPet) currentPet).getBoredom() + "\t | " + ((OrganicPet) currentPet).getPoop()
+						System.out.println(currentPet.getPetName() + "\t|  " + currentPet.getHealth() + "\t | "
+								+ ((OrganicPet) currentPet).getHunger() + "\t |  "
+								+ ((OrganicPet) currentPet).getThirst() + "\t |  "
+								+ ((OrganicPet) currentPet).getBoredom() + "\t |  " + ((OrganicPet) currentPet).getPoop()
 								+ "\t |   -   ");
 						//continue;
 					} else if (currentPet instanceof RoboPet) {
-						System.out.println(currentPet.getPetName()+ "\t | " + currentPet.getHealth() + "\t |   -   "
-								+ "\t |   -   " + "\t |   -   " + "\t |   -   " + "\t | "+ ((RoboPet) currentPet).getRustLevel());
+						System.out.println(currentPet.getPetName()+ "\t|  " 
+								+ currentPet.getHealth() 
+								+ "\t |   -   |   -   |   -   |   -   |   "
+								
+								+ ((RoboPet) currentPet).getRustLevel());
 						
 						
 						
