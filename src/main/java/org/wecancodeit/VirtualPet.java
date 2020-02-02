@@ -29,6 +29,10 @@ public abstract class VirtualPet {
 	protected void addHealth() { // only able to modify within hierarchy
 		health++;
 	}
+	
+	protected void lowerHealth() {
+		health--;
+	}
 
 	// tick() method for all? --> defined within classes
 	// details defined by subclasses because they need different things

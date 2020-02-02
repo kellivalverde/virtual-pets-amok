@@ -21,6 +21,7 @@ public class VirtualPetShelterTest {
 	private Cat pet1;
 	private Dog pet2;
 	private Cat pet3;
+	private RoboPet pet4;
 
 	@Before
 	public void setUp() { // method that sets up project so you can have objects for your test
@@ -28,17 +29,17 @@ public class VirtualPetShelterTest {
 		pet1 = new Cat("Cleo", "the big fluffy cat", 10, 0, 0, 0, 2);
 		pet2 = new Dog("Beau", "the stocky bulldog", 10, 3, 0, 0, 0);
 		pet3 = new Cat("Oliver", "the scruffy gray cat", 10, 0, 0, 1, 0);
+		pet4 = new RoboPet("Stanley", "the robunny", 10, 0);
 	}
 
 // allow intakes (add pet)
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void shouldBeAbleToAddAPet() {
 		underTest.add(pet1);
 		underTest.add(pet2);
-		VirtualPet retrievedAccount = underTest.findPet("MeiLing");
-		assertThat(retrievedAccount, is(pet1));
+		VirtualPet retrievedAccount = underTest.findPet("Cleo");
+		assertEquals(retrievedAccount, pet1);
 	}
 
 // allow adoption(remove pet)
@@ -60,22 +61,44 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldReturnAPetByName() {
 		underTest.add(pet1);
-		VirtualPet retrievedAccount = underTest.findPet("MeiLing");
+		VirtualPet retrievedAccount = underTest.findPet("Cleo");
 		assertThat(retrievedAccount, is(pet1));
+
 	}
 
 	// should return a collection of all the pets in the shelter
-	Collection<VirtualPet> allPets = underTest.getAllPets();
-	Collection<OrganicPet> orgPets = underTest.getAllOrganicPets();
 
 	@Test
 	public void shouldReturnCollectionOfAllPets() {
+
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);
+		underTest.add(pet4); //RoboPet
+
+		
+		Collection<VirtualPet> allPets = underTest.getAllPets();
 
 		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
-		assertEquals(3, allPets.size());
+		assertEquals(4, allPets.size());
+
+	}
+
+	@Test
+	public void shouldReturnCollectionOfAllOrganicPets() {
+
+		underTest.add(pet1);
+		underTest.add(pet2);
+		underTest.add(pet3);
+		
+		underTest.add(pet4); //RoboPet
+		
+		Collection<VirtualPet> allPets = underTest.getAllPets();
+		Collection<OrganicPet> orgPets = underTest.getAllOrganicPets();
+
+		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
+		assertEquals(3, orgPets.size());
+		assertEquals(4, allPets.size());
 
 	}
 
@@ -85,8 +108,11 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToPlayWith1Pet() {
 		underTest.add(pet2);
+		pet2.tick();
+
 		int beforePlay = underTest.getBoredomForPet(pet2.getPetName());
 		underTest.playWithPet(pet2.getPetName());
+
 		int afterPlay = underTest.getBoredomForPet(pet2.getPetName());
 		assertTrue(afterPlay < beforePlay);
 	}

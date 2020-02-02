@@ -17,8 +17,13 @@ public class Cat extends OrganicPet {
 	}
 
 	public void useLitterBox() {
+		
+		if(litterBox.isDirty()) {
+			lowerHealth();  
+		}
 		litterBox.addPoop(getPoop()); // adds amount from each individual cat
 		cleanPoop(); // sets it back to 0 (inside the cat)
+				
 	}
 
 	@Override

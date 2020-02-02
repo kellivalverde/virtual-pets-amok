@@ -1,6 +1,7 @@
 package org.wecancodeit;
 //Mod 4 : Virtual Pets Amok
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,9 +11,11 @@ public class VirtualPetShelter {
 	private LitterBox litterBox = new LitterBox();
 
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
-	private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
+	// private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
 
-	private OrganicPet hungryPet;
+	private OrganicPet thirstyPet;
+
+	private OrganicPet poopyPet;
 
 	public void add(VirtualPet petToAdd) {
 		pets.put(petToAdd.getPetName(), petToAdd);
@@ -48,28 +51,92 @@ public class VirtualPetShelter {
 	}
 
 	public Collection<OrganicPet> getAllOrganicPets() {
-		return orgPets.values();
+		Collection<OrganicPet> orgPets = new ArrayList<OrganicPet>();
+		// holding bin for the organic pets -- subset
+
+		for (VirtualPet pet : pets.values()) {
+			if (pet instanceof OrganicPet) {
+				// checks if they are organic
+				orgPets.add((OrganicPet) pet);
+				// throws it in that bin
+			}
+		}
+		return orgPets; // chucks that bin out
 	}
 
 	// feed all Organic pets
 	public void feedAllOrganicPets() {
-		if (hungryPet instanceof OrganicPet) {
-			((OrganicPet) hungryPet).feed(); // casting -> sets litterBox to the one in my Cat class
+		for (OrganicPet hungryPet : getAllOrganicPets()) {
+			hungryPet.feed();
 		}
 
 	}
 
-	// water all Organic pets
+	// water all pets
 	public void waterAllPets() {
 		for (OrganicPet thirstyPet : getAllOrganicPets()) {
 			thirstyPet.giveWater();
 		}
 	}
 
-	// clean up after all Organic pets
-	public void cleanAllPets() {
-		for (OrganicPet poopyPet : getAllOrganicPets()) {
-			poopyPet.cleanPoop();
+	
+	// clean litter box
+	
+	public void cleanLitterBox() {
+	
+		//getAllOrganicPets - find the ones that use the litterBos
+		
+		if(petToClean instanceof Cat);
+		((Cat))
+	
+	
+		
+		
+		}
+		
+	}
+	
+	
+		
+	// clean cages
+	
+	public void cleanAllCages() {
+		for
+		
+	}
+	
+	
+	
+	
+	
+// clean up after all Organic pets
+//	public void cleanAllPets() {
+//		if (poopyPet instanceof OrganicPet) {
+//			((OrganicPet) poopyPet).cleanPoop();
+//		}
+//	}
+	
+
+	public Collection<RoboPet> getAllRoboPets() {
+
+		Collection<RoboPet> roboPets = new ArrayList<RoboPet>();
+
+		// holding bin for the organic pets -- subset
+
+		for (VirtualPet pet : pets.values()) {
+			if (pet instanceof RoboPet) {
+				// checks if they are organic
+				roboPets.add((RoboPet) pet);
+				// throws it in that bin
+			}
+		}
+		return roboPets; // chucks that bin out
+	}
+
+	// oil all RoboPets
+	public void oilAllRoboPets() {
+		for (RoboPet rustyPet : getAllRoboPets()) {
+			rustyPet.giveOil();
 		}
 	}
 
@@ -80,5 +147,4 @@ public class VirtualPetShelter {
 		}
 
 	}
-
 }
