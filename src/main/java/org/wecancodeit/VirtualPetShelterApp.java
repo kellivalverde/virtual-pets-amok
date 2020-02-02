@@ -61,18 +61,41 @@ public class VirtualPetShelterApp {
 								+ "\t |   -   |   -   |   -   |   -   |   "
 								
 								+ ((RoboPet) currentPet).getRustLevel());
-						
-						
-						
 					}
 
 				}
+				
+			} else if (menuOption.contains("2")) {
+				
+				Collection<VirtualPet> petRoster = myPets.getAllPets();
+				// Collection is a type like String or int, etc.
 
+				for (VirtualPet currentPet : petRoster) {
+					System.out.println(currentPet.getPetName()); // add description
+				}
+				
+			} else if (menuOption.contentEquals("3")) {
+				System.out.println("Feeding time! Come and get it, pets!");
+				
+				myPets.feedAllOrganicPets();
+					
+				}
+			else if (menuOption.contentEquals("4")) {
+				System.out.println("Who's thirsty? You gave water to all pets.");
+				
+				myPets.waterAllOrganicPets();
+					
+				}
+			
+				
+				
 			}
-
+			
+			
+			
 		}
 
-	}
+	
 
 	private static void printMenu() {
 		System.out.println("1: Check status for all pets. (Hint: 0 = satisfied)");

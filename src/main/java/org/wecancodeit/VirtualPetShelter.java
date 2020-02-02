@@ -88,7 +88,7 @@ public class VirtualPetShelter {
 	}
 
 	// water all pets
-	public void waterAllPets() {
+	public void waterAllOrganicPets() {
 		for (OrganicPet thirstyPet : getAllOrganicPets()) {
 			thirstyPet.giveWater();
 		}

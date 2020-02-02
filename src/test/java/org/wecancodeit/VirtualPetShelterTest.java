@@ -151,7 +151,7 @@ public class VirtualPetShelterTest {
 		int beforeWater2 = pet2.getThirst();
 		int beforeWater3 = pet3.getThirst();
 
-		underTest.waterAllPets();
+		underTest.waterAllOrganicPets();
 
 		int afterWater1 = pet1.getThirst();
 		int afterWater2 = pet2.getThirst();
