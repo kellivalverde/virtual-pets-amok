@@ -15,7 +15,7 @@ public class VirtualPetShelterApp {
 		// starter pets
 		Cat pet1 = new Cat(1, "Cleo", "big fluffy cat", 10, 0, 0, 0, 0);
 		Dog pet2 = new Dog(2, "Beau", "stocky bulldog", 10, 0, 0, 0, 0);
-		RoboPet pet3 = new RoboPet(3, "Stanley", "the robunny", 10, 0);
+		RoboPet pet3 = new RoboPet(3, "Stanley", "the robo-bunny", 10, 0);
 
 		myPets.add(pet1);
 		myPets.add(pet2);
@@ -71,23 +71,41 @@ public class VirtualPetShelterApp {
 				// Collection is a type like String or int, etc.
 
 				for (VirtualPet currentPet : petRoster) {
-					System.out.println(currentPet.getPetName()); // add description
+					System.out.println(currentPet.getPetName() + " the "+ currentPet.getPetDescription());
 				}
 				
 			} else if (menuOption.contentEquals("3")) {
 				System.out.println("Feeding time! Come and get it, pets!");
-				
 				myPets.feedAllOrganicPets();
 					
 				}
 			else if (menuOption.contentEquals("4")) {
 				System.out.println("Who's thirsty? You gave water to all pets.");
-				
 				myPets.waterAllOrganicPets();
 					
 				}
 			
+			else if (menuOption.contentEquals("5")) {
 				
+				System.out.println("What would you like to do?: \n  A: Play with a cat \n  B: Walk a pet");
+				String selectedOption = input.nextLine();
+					
+				
+				
+				if (selectedPet instanceof Walkable) {
+					
+				}
+				
+				
+				
+				
+				
+				
+				myPets.playWithPet(selectedPet);  // to lower case - substring capitalize
+				System.out.println(selectedPet + " loves to play! Have fun!");
+				
+			
+			}
 				
 			}
 			
@@ -107,7 +125,6 @@ public class VirtualPetShelterApp {
 		System.out.println("7: Adopt a pet");
 		System.out.println("8: Admit a new pet");
 		System.out.println("9: Quit");
-
 		System.out.println("--- To see menu again, type \"help\". ---");
 
 	}
