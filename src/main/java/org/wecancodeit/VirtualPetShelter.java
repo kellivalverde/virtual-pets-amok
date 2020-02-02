@@ -42,8 +42,7 @@ public class VirtualPetShelter {
 //	public void markAdopted(VirtualPet petToMarkAdopted) {
 //		pets.
 //	}
-	
-	
+
 	
 	// play with one pet
 	public int getBoredomForPet(String petToPlayWith) {
@@ -64,7 +63,7 @@ public class VirtualPetShelter {
 
 	//return all pets that are !adopted
 	public Collection<VirtualPet> getAllAdoptablePets() {
-		//for pets !adopted - get values    ... boolean
+		//for pets !adopted - get values or get KEYS???   ... boolean
 		return pets.values();
 	}
 	
