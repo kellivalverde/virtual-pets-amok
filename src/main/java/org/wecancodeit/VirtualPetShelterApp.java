@@ -13,8 +13,8 @@ public class VirtualPetShelterApp {
 		Scanner input = new Scanner(System.in);
 
 		// starter pets
-		Cat pet1 = new Cat(1, "Cleo", "big fluffy cat", 10, 0, 0, 0, 2);
-		Dog pet2 = new Dog(2, "Beau", "stocky bulldog", 10, 3, 0, 0, 0);
+		Cat pet1 = new Cat(1, "Cleo", "big fluffy cat", 10, 0, 0, 0, 0);
+		Dog pet2 = new Dog(2, "Beau", "stocky bulldog", 10, 0, 0, 0, 0);
 		RoboPet pet3 = new RoboPet(3, "Stanley", "the robunny", 10, 0);
 
 		myPets.add(pet1);
@@ -40,35 +40,32 @@ public class VirtualPetShelterApp {
 
 				System.out.println("\nStatus for all pets: ");
 
-				System.out.println("Name \t | Hunger| Thirst|Boredom| Poop");
-				System.out.println("-----------------------------------------");
+				System.out.println("Name \t | Overall Health | Hunger| Thirst|Boredom| Poop | Rust Level");
+				System.out.println("---------------------------------------------------------------------");
 
 				Collection<VirtualPet> petStats = myPets.getAllPets();
-				Collection<OrganicPet> orgPetStats = myPets.getAllOrganicPets();
-				Collection<RoboPet> roboPetStats = myPets.getAllRoboPets();
-
-
-				for (OrganicPet currentPet : orgPetStats) {
-
-					if (currentPet instanceof OrganicPet) { // checks if they are organic
-						System.out.println(currentPet.getPetName() + "\t | " + currentPet.getHunger() + "\t | "
-								+ currentPet.getThirst() + "\t | " + currentPet.getBoredom() + "\t | "
-								+ currentPet.getPoop());
+//				Collection<OrganicPet> orgPetStats = myPets.getAllOrganicPets();
+//				Collection<RoboPet> roboPetStats = myPets.getAllRoboPets();
+				
+								
+				
+				for (VirtualPet currentPet : petStats) {
+				
+					if (currentPet instanceof OrganicPet) {
+						System.out.println(currentPet.getPetName() + "\t | " + currentPet.getHealth() + "\t | "
+								+ ((OrganicPet) currentPet).getHunger() + "\t | "
+								+ ((OrganicPet) currentPet).getThirst() + "\t | "
+								+ ((OrganicPet) currentPet).getBoredom() + "\t | " + ((OrganicPet) currentPet).getPoop()
+								+ "\t |   -   ");
+						//continue;
+					} else if (currentPet instanceof RoboPet) {
+						System.out.println(currentPet.getPetName()+ "\t | " + currentPet.getHealth() + "\t |   -   "
+								+ "\t |   -   " + "\t |   -   " + "\t |   -   " + "\t | "+ ((RoboPet) currentPet).getRustLevel());
+						
+						
+						
 					}
-					
-				for (RoboPet currentPet : orgPetStats) {
 
-					if (currentPet instanceof OrganicPet) { // checks if they are organic
-						System.out.println(currentPet.getPetName() + "\t | " + currentPet.getHunger() + "\t | "
-								+ currentPet.getThirst() + "\t | " + currentPet.getBoredom() + "\t | "
-								+ currentPet.getPoop());
-						}	
-					
-					
-					
-					
-					
-					
 				}
 
 			}
