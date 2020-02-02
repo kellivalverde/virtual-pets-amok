@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class RoboPetTest {
 
 	
-	RoboPet underTest = new RoboPet("Name", "description", 0, 0);
+	RoboPet underTest = new RoboPet(4,"Name", "description", 0, 0);
 	
 	
 	@Test

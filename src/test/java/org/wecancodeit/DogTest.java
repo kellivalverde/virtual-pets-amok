@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class DogTest {
 
-	Dog underTest = new Dog("Name", "description", 10, 0, 0, 0, 0);
+	Dog underTest = new Dog(3,"Name", "description", 10, 0, 0, 0, 0);
 
 	@Test
 	void boredomShouldBe0AfterWalk() {

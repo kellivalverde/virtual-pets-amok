@@ -9,19 +9,19 @@ import java.util.Map;
 public class VirtualPetShelter {
 
 	private LitterBox litterBox = new LitterBox();
-	// private OrganicPet thirstyPet;
-	// private OrganicPet poopyPet;
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 	// private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
+	//private Map<Integer, VirtualPet> pets = new HashMap<Integer, VirtualPet>();
+	
 
 	public void add(VirtualPet petToAdd) {
 		
 		//add petId number? size of collection +1
-		int petIdNum = pets.size()+1;
+		//int petIdNum = pets.size()+1;
 		
 		pets.put(petToAdd.getPetName(), petToAdd); // change name to petId- could be an integer add 1 to size of
 													// collection
-		//pet.put(petToAdd.getPetId(), petToAdd); 
+		//pets.set(petToAdd.getPetId(), petToAdd); 
 		
 		if (petToAdd instanceof Cat) {
 			((Cat) petToAdd).setLitterBox(litterBox); // casting -> sets litterBox to the one in my Cat class
@@ -39,9 +39,9 @@ public class VirtualPetShelter {
 	}
 
 	//revised allow adoption - does not remove pet
-	public void markAdopted(VirtualPet petToMarkAdopted) {
-		pets.
-	}
+//	public void markAdopted(VirtualPet petToMarkAdopted) {
+//		pets.
+//	}
 	
 	
 	
@@ -64,7 +64,7 @@ public class VirtualPetShelter {
 
 	//return all pets that are !adopted
 	public Collection<VirtualPet> getAllAdoptablePets() {
-		for
+		//for pets !adopted - get values    ... boolean
 		return pets.values();
 	}
 	
