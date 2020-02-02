@@ -113,13 +113,34 @@ public class VirtualPetShelter {
 		}
 	}
 
-// clean up after all Organic pets
-//	public void cleanAllPets() {
-//		if (poopyPet instanceof OrganicPet) {
-//			((OrganicPet) poopyPet).cleanPoop();
-//		}
-//	}
+	public Collection<Walkable> getAllWalkablePets() {
+		Collection<Walkable> walkablePets = new ArrayList<Walkable>();
+			
+		for (VirtualPet pet : pets.values()) {
+			if (pet instanceof Walkable) { // checks if they are organic
+				walkablePets.add((Walkable) pet); // throws it in that bin
+			}
+		}
+		return walkablePets; // spits that bin back out
+	}
 
+	public void walkAllWalkablePets() {
+		for (Walkable pet : getAllWalkablePets()) {
+			pet.walk();
+			
+		}
+	}
+	
+	public void playWithCats() {
+		for (VirtualPet pet : pets.values()) {
+			if (pet instanceof Cat) {
+				((Cat) pet).playWithLaser();
+			}
+		}
+	}
+	
+	
+	
 	public Collection<RoboPet> getAllRoboPets() {
 
 		Collection<RoboPet> roboPets = new ArrayList<RoboPet>();

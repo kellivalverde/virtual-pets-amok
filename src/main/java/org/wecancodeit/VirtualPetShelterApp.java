@@ -44,76 +44,67 @@ public class VirtualPetShelterApp {
 				System.out.println("---------------------------------------------------------------");
 
 				Collection<VirtualPet> petStats = myPets.getAllPets();
-		
-				
+
 				for (VirtualPet currentPet : petStats) {
-				
+
 					if (currentPet instanceof OrganicPet) {
 						System.out.println(currentPet.getPetName() + "\t|  " + currentPet.getHealth() + "\t | "
 								+ ((OrganicPet) currentPet).getHunger() + "\t |  "
 								+ ((OrganicPet) currentPet).getThirst() + "\t |  "
-								+ ((OrganicPet) currentPet).getBoredom() + "\t |  " + ((OrganicPet) currentPet).getPoop()
-								+ "\t |   -   ");
-						//continue;
+								+ ((OrganicPet) currentPet).getBoredom() + "\t |  "
+								+ ((OrganicPet) currentPet).getPoop() + "\t |   -   ");
+						// continue;
 					} else if (currentPet instanceof RoboPet) {
-						System.out.println(currentPet.getPetName()+ "\t|  " 
-								+ currentPet.getHealth() 
+						System.out.println(currentPet.getPetName() + "\t|  " + currentPet.getHealth()
 								+ "\t |   -   |   -   |   -   |   -   |   "
-								
+
 								+ ((RoboPet) currentPet).getRustLevel());
 					}
 
 				}
-				
+
 			} else if (menuOption.contains("2")) {
-				
+
 				Collection<VirtualPet> petRoster = myPets.getAllPets();
 				// Collection is a type like String or int, etc.
 
 				for (VirtualPet currentPet : petRoster) {
-					System.out.println(currentPet.getPetName() + " the "+ currentPet.getPetDescription());
+					System.out.println(currentPet.getPetName() + " the " + currentPet.getPetDescription());
 				}
-				
+
 			} else if (menuOption.contentEquals("3")) {
 				System.out.println("Feeding time! Come and get it, pets!");
 				myPets.feedAllOrganicPets();
-					
-				}
-			else if (menuOption.contentEquals("4")) {
+
+			} else if (menuOption.contentEquals("4")) {
 				System.out.println("Who's thirsty? You gave water to all pets.");
 				myPets.waterAllOrganicPets();
-					
-				}
-			
+
+			}
+
 			else if (menuOption.contentEquals("5")) {
-				
-				System.out.println("What would you like to do?: \n  A: Play with a cat \n  B: Walk a pet");
+
+				System.out
+						.println("What would you like to do?: \n  A: Play with a cat \n  B: Take some pets for a walk");
 				String selectedOption = input.nextLine();
-					
-				
-				
-				if (selectedPet instanceof Walkable) {
-					
+
+				if (selectedOption.contentEquals("A")) {
+					myPets.playWithCats();
+					System.out.println("The cats really loved playing with the laser! Me-ow!");
+
+				} else if (selectedOption.contentEquals("B")) {
+					myPets.walkAllWalkablePets();
+					System.out.println(
+							"Wow! the dogs really loved going on a walk! \n...uh-oh! the robo-pets are looking a little rusty, though.");
+
+				} else {
+					System.out.println("What?");
 				}
-				
-				
-				
-				
-				
-				
-				myPets.playWithPet(selectedPet);  // to lower case - substring capitalize
-				System.out.println(selectedPet + " loves to play! Have fun!");
-				
-			
 			}
-				
-			}
-			
-			
-			
+
 		}
 
-	
+	}
 
 	private static void printMenu() {
 		System.out.println("1: Check status for all pets. (Hint: 0 = satisfied)");
