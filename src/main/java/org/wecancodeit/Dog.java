@@ -31,4 +31,8 @@ public class Dog extends OrganicPet implements Walkable {
 
 	}
 
+	public void cleanCage() {
+		cage.clean();
+	}
+
 }

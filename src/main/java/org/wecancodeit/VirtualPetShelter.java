@@ -79,43 +79,29 @@ public class VirtualPetShelter {
 		}
 	}
 
-	
 	// clean litter box
-	
-	public void cleanLitterBox() {
-	
-		//getAllOrganicPets - find the ones that use the litterBos
-		
-		if(petToClean instanceof Cat);
-		((Cat))
-	
-	
-		
-		
-		}
-		
+
+	public void emptyLitterBox() {
+
+		litterBox.clean();
 	}
-	
-	
-		
+
 	// clean cages
-	
+
 	public void cleanAllCages() {
-		for
-		
+		for (VirtualPet pet : pets.values()) {
+			if (pet instanceof Dog) {
+				((Dog) pet).cleanCage();
+			}
+		}
 	}
-	
-	
-	
-	
-	
+
 // clean up after all Organic pets
 //	public void cleanAllPets() {
 //		if (poopyPet instanceof OrganicPet) {
 //			((OrganicPet) poopyPet).cleanPoop();
 //		}
 //	}
-	
 
 	public Collection<RoboPet> getAllRoboPets() {
 
