@@ -17,7 +17,9 @@ public class VirtualPetShelterTest {
 //arrange 
 
 	private VirtualPetShelter underTest; // calling default constructor of VPS
-	private OrganicPet underTestOg;
+	//private OrganicPet underTestOg;
+	private LitterBox litterBox = new LitterBox();
+	private Cage cage = new Cage();
 	private Cat pet1;
 	private Dog pet2;
 	private Cat pet3;
@@ -26,10 +28,10 @@ public class VirtualPetShelterTest {
 	@Before
 	public void setUp() { // method that sets up project so you can have objects for your test
 		underTest = new VirtualPetShelter();
-		pet1 = new Cat("Cleo", "the big fluffy cat", 10, 0, 0, 0, 2);
-		pet2 = new Dog("Beau", "the stocky bulldog", 10, 3, 0, 0, 0);
-		pet3 = new Cat("Oliver", "the scruffy gray cat", 10, 0, 0, 1, 0);
-		pet4 = new RoboPet("Stanley", "the robunny", 10, 0);
+		pet1 = new Cat(1, "Cleo", "the big fluffy cat", 10, 0, 0, 0, 2);
+		pet2 = new Dog(2, "Beau", "the stocky bulldog", 10, 3, 0, 0, 0);
+		pet3 = new Cat(3 ,"Oliver", "the scruffy gray cat", 10, 0, 0, 1, 0);
+		pet4 = new RoboPet(4 ,"Stanley", "the robunny", 10, 0);
 	}
 
 // allow intakes (add pet)
@@ -74,9 +76,8 @@ public class VirtualPetShelterTest {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);
-		underTest.add(pet4); //RoboPet
+		underTest.add(pet4); // RoboPet
 
-		
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 
 		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
@@ -90,9 +91,9 @@ public class VirtualPetShelterTest {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);
-		
-		underTest.add(pet4); //RoboPet
-		
+
+		underTest.add(pet4); // RoboPet
+
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 		Collection<OrganicPet> orgPets = underTest.getAllOrganicPets();
 
@@ -163,30 +164,73 @@ public class VirtualPetShelterTest {
 
 	// clean up after all pets
 	@Test
-	public void shouldCleanUpAfterAllPets() {
+	public void shouldCleanLitterBox() {
 		underTest.add(pet1);
-		underTest.add(pet2);
 		underTest.add(pet3);
+		pet1.setLitterBox(litterBox);
+		pet3.setLitterBox(litterBox);
 
 		int beforeClean1 = pet1.getPoop();
-		int beforeClean2 = pet2.getPoop();
 		int beforeClean3 = pet3.getPoop();
 
-		underTest.cleanAllPets();
+		int testRound = 0;
+		while (testRound < 10) {
+			underTest.tickAllPets();
+			testRound++;
+		}
+
+		litterBox.clean();
 
 		int afterClean1 = pet1.getPoop();
-		int afterClean2 = pet2.getPoop();
 		int afterClean3 = pet3.getPoop();
 
 		assertTrue(afterClean1 <= beforeClean1);
-		assertTrue(afterClean2 <= beforeClean2);
 		assertTrue(afterClean3 <= beforeClean3);
+	}
+
+// how to tell if litterBox isDirty
+
+	public void shouldCheckIfLitterBoxIsDirty() {
+		underTest.add(pet1);
+		underTest.add(pet3);
+		pet1.setLitterBox(litterBox);
+		pet3.setLitterBox(litterBox);
+
+		int beforeCheck1 = pet1.getPoop();
+		int beforeCheck3 = pet3.getPoop();
+
+		int testRound = 0;
+		while (testRound < 10) {
+			underTest.tickAllPets();
+			testRound++;
+		}
+
+		litterBox.isDirty();
+
+		int afterCheck1 = pet1.getPoop();
+		int afterCheck3 = pet3.getPoop();
+
+		assertTrue(afterCheck1 <= beforeCheck1);
+		assertTrue(afterCheck3 <= beforeCheck3);
+	}
+
+	public void shouldCheckIfCageIsDirty() {
+		underTest.add(pet2);
+		int beforeCheck1 = pet1.getPoop();
+		int testRound = 0;
+		while (testRound < 10) {
+			underTest.tickAllPets();
+			testRound++;
+		}
+		cage.isDirty();
+		int afterCheck1 = pet1.getPoop();
+		assertTrue(afterCheck1 <= beforeCheck1);
 	}
 
 	// calls tick() method after each loop - all stats increase
 
 	@Test
-	public void shouldIncreaseStatsOfAllPetsBy1() {
+	public void tickShouldIncreaseStatsOfAllPetsBy1() {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.add(pet3);

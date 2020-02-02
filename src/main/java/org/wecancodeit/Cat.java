@@ -6,9 +6,9 @@ public class Cat extends OrganicPet {
 	private static final int POOP_THRESHOLD = 5;
 	private LitterBox litterBox;
 
-	public Cat(String petNamePar, String petDescriptionPar, int healthPar , int hungerPar, int thirstPar, int boredomPar,
+	public Cat(int petIdPar, String petNamePar, String petDescriptionPar, int healthPar , int hungerPar, int thirstPar, int boredomPar,
 			int poopPar) {
-		super(petNamePar, petDescriptionPar, healthPar, hungerPar, thirstPar, boredomPar, poopPar);
+		super(petIdPar, petNamePar, petDescriptionPar, healthPar, hungerPar, thirstPar, boredomPar, poopPar);
 		// meow!
 	}
 

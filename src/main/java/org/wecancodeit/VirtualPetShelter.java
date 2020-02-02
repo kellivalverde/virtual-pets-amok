@@ -9,19 +9,24 @@ import java.util.Map;
 public class VirtualPetShelter {
 
 	private LitterBox litterBox = new LitterBox();
-
+	// private OrganicPet thirstyPet;
+	// private OrganicPet poopyPet;
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 	// private Map<String, OrganicPet> orgPets = new HashMap<String, OrganicPet>();
 
-	private OrganicPet thirstyPet;
-
-	private OrganicPet poopyPet;
-
 	public void add(VirtualPet petToAdd) {
-		pets.put(petToAdd.getPetName(), petToAdd);
+		
+		//add petId number? size of collection +1
+		int petIdNum = pets.size()+1;
+		
+		pets.put(petToAdd.getPetName(), petToAdd); // change name to petId- could be an integer add 1 to size of
+													// collection
+		//pet.put(petToAdd.getPetId(), petToAdd); 
+		
 		if (petToAdd instanceof Cat) {
 			((Cat) petToAdd).setLitterBox(litterBox); // casting -> sets litterBox to the one in my Cat class
 		}
+		
 	}
 
 	public VirtualPet findPet(String petName) {
@@ -30,9 +35,16 @@ public class VirtualPetShelter {
 
 	// allow adoption(remove pet)
 	public void remove(VirtualPet petToRemove) {
-		pets.remove(petToRemove.getPetName(), petToRemove);
+		pets.remove(petToRemove.getPetName(), petToRemove); // mark as adopted and skip when getAllPets - boolean adopted or not
 	}
 
+	//revised allow adoption - does not remove pet
+	public void markAdopted(VirtualPet petToMarkAdopted) {
+		pets.
+	}
+	
+	
+	
 	// play with one pet
 	public int getBoredomForPet(String petToPlayWith) {
 		OrganicPet playWithPet = (OrganicPet) pets.get(petToPlayWith); // calls to my VP class
@@ -50,18 +62,22 @@ public class VirtualPetShelter {
 		return pets.values();
 	}
 
+	//return all pets that are !adopted
+	public Collection<VirtualPet> getAllAdoptablePets() {
+		for
+		return pets.values();
+	}
+	
 	public Collection<OrganicPet> getAllOrganicPets() {
 		Collection<OrganicPet> orgPets = new ArrayList<OrganicPet>();
 		// holding bin for the organic pets -- subset
 
 		for (VirtualPet pet : pets.values()) {
-			if (pet instanceof OrganicPet) {
-				// checks if they are organic
-				orgPets.add((OrganicPet) pet);
-				// throws it in that bin
+			if (pet instanceof OrganicPet) { // checks if they are organic
+				orgPets.add((OrganicPet) pet); // throws it in that bin
 			}
 		}
-		return orgPets; // chucks that bin out
+		return orgPets; // spits that bin back out
 	}
 
 	// feed all Organic pets
@@ -78,6 +94,8 @@ public class VirtualPetShelter {
 			thirstyPet.giveWater();
 		}
 	}
+
+	// **** need a check for isDirty ***
 
 	// clean litter box
 

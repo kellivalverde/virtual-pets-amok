@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class OrganicPetTest {
 
-	OrganicPet underTest = new Cat("Name", "description", 10, 0, 0, 0, 0);
+	OrganicPet underTest = new Cat(1, "Name", "description", 10, 0, 0, 0, 0);
 
 	@Test
 	public void hungerShouldStartAt0() {

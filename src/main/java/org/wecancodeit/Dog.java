@@ -1,13 +1,14 @@
 package org.wecancodeit;
+//Mod 4 : Virtual Pets Amok
 
 public class Dog extends OrganicPet implements Walkable {
 
 	private static final int POOP_THRESHOLD = 5;
 	private Cage cage = new Cage(); // default each has their own cage
 
-	public Dog(String petNamePar, String petDescriptionPar, int healthPar, int hungerPar, int thirstPar, int boredomPar,
+	public Dog(int petIdPar, String petNamePar, String petDescriptionPar, int healthPar, int hungerPar, int thirstPar, int boredomPar,
 			int poopPar) {
-		super(petNamePar, petDescriptionPar, healthPar, hungerPar, thirstPar, boredomPar, poopPar);
+		super(petIdPar, petNamePar, petDescriptionPar, healthPar, hungerPar, thirstPar, boredomPar, poopPar);
 
 	}
 

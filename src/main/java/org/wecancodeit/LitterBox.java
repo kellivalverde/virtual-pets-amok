@@ -1,4 +1,5 @@
 package org.wecancodeit;
+//Mod 4 : Virtual Pets Amok
 
 public class LitterBox implements PetToilet {
 

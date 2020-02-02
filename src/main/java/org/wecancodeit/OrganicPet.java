@@ -10,9 +10,8 @@ public class OrganicPet extends VirtualPet {
 	private int boredom = 0;
 	private int poop = 0;
 
-	public OrganicPet(String petNameParameter, String petDescriptionParameter, int healthPar, int hungerPar,
-			int thirstPar, int boredomPar, int poopPar) {
-		super(petNameParameter, petDescriptionParameter, healthPar);
+	public OrganicPet(int petIdPar, String petNamePar, String petDescriptionPar, int healthPar,	int hungerPar, int thirstPar, int boredomPar, int poopPar) {
+		super(petIdPar, petNamePar, petDescriptionPar, healthPar);
 		this.hunger = hungerPar;
 		this.thirst = thirstPar;
 		this.boredom = boredomPar;
