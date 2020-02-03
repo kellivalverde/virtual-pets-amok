@@ -1,7 +1,6 @@
 package org.wecancodeit;
 // Mod 4: Virtual Pets Amok
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -21,7 +20,7 @@ public class VirtualPetShelterApp {
 		myPets.add(pet2);
 		myPets.add(pet3);
 
-		System.out.println("Welcome to the WCCI Pet Shelter!");
+		System.out.println("Welcome to the WCCI Pet Shelter!" + "\n\nHome for cats, dogs and wayward robo-pets");
 		System.out.println("\n********************************************** \n");
 
 		printMenu();
@@ -80,8 +79,6 @@ public class VirtualPetShelterApp {
 			} else if (menuOption.contentEquals("5")) {
 				System.out.println("Beep boopp! All the Robo-pets have been oiled.");
 				myPets.oilAllRoboPets();
-
-			
 		
 			}else if (menuOption.contentEquals("6")) {
 
@@ -94,14 +91,17 @@ public class VirtualPetShelterApp {
 
 				} else if (selectedOption.toUpperCase().contentEquals("B")) {
 					myPets.walkAllWalkablePets();
-					System.out.println("Wow! the dogs really loved going on a walk! \n...uh-oh! the robo-pets are looking a little rusty, though.");
+					System.out.println("Wow! the dogs really loved going on a walk!" 
+					+ "\n...uh-oh! the robo-pets are looking a little rusty, though.");
 				} else {
 					System.out.println("Sorry, that is not an option.");
 				}
 
 			} else if (menuOption.contentEquals("7")) {
 
-				System.out.println("What would you like to do?: \n  A: Clean the litter box \n  B: Check the dog cages");
+				System.out.println("What would you like to do?:" 
+						+ "\n  A: Clean the litter box" 
+						+ "\n  B: Check the dog cages");
 				String selectedOption = input.nextLine();
 				if (selectedOption.toUpperCase().contentEquals("A")) {
 					if (myPets.getLitterBox().isDirty()) {
