@@ -98,6 +98,7 @@ public class VirtualPetShelter {
 		return litterBox;
 	}
 	
+	
 	public void cleanAllCages() {
 		for (VirtualPet pet : pets.values()) {
 			if (pet instanceof Dog) {

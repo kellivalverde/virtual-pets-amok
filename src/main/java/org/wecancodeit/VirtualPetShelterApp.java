@@ -60,14 +60,11 @@ public class VirtualPetShelterApp {
 
 								+ ((RoboPet) currentPet).getRustLevel());
 					}
-
 				}
 
 			} else if (menuOption.contains("2")) {
-
+				// make into a method?
 				Collection<VirtualPet> petRoster = myPets.getAllPets();
-				// Collection is a type like String or int, etc.
-
 				for (VirtualPet currentPet : petRoster) {
 					System.out.println(currentPet.getPetName() + " the " + currentPet.getPetDescription());
 				}
@@ -80,12 +77,15 @@ public class VirtualPetShelterApp {
 				System.out.println("Who's thirsty? You gave water to all pets.");
 				myPets.waterAllOrganicPets();
 
-			}
+			} else if (menuOption.contentEquals("5")) {
+				System.out.println("Beep boopp! All the Robo-pets have been oiled.");
+				myPets.oilAllRoboPets();
 
-			else if (menuOption.contentEquals("5")) {
+			
+		
+			}else if (menuOption.contentEquals("6")) {
 
-				System.out.println(
-						"What would you like to do?: \n  A: Play with the cats \n  B: Take some pets for a walk");
+				System.out.println("What would you like to do?: \n  A: Play with the cats \n  B: Take some pets for a walk");
 				String selectedOption = input.nextLine();
 
 				if (selectedOption.toUpperCase().contentEquals("A")) {
@@ -94,26 +94,25 @@ public class VirtualPetShelterApp {
 
 				} else if (selectedOption.toUpperCase().contentEquals("B")) {
 					myPets.walkAllWalkablePets();
-					System.out.println(
-							"Wow! the dogs really loved going on a walk! \n...uh-oh! the robo-pets are looking a little rusty, though.");
-
+					System.out.println("Wow! the dogs really loved going on a walk! \n...uh-oh! the robo-pets are looking a little rusty, though.");
 				} else {
 					System.out.println("Sorry, that is not an option.");
 				}
 
-			} else if (menuOption.contentEquals("6")) {
+			} else if (menuOption.contentEquals("7")) {
 
 				System.out.println("What would you like to do?: \n  A: Clean the litter box \n  B: Check the dog cages");
 				String selectedOption = input.nextLine();
-					if (selectedOption.toUpperCase().contentEquals("A")) {
-						if(myPets.getLitterBox().isDirty()) {
+				if (selectedOption.toUpperCase().contentEquals("A")) {
+					if (myPets.getLitterBox().isDirty()) {
 						myPets.emptyLitterBox();
-						} else if (selectedOption.toUpperCase().contentEquals("B")) {
+					} else if (selectedOption.toUpperCase().contentEquals("B")) {
 						myPets.cleanAllCages();
-						}System.out.println("Sorry, that is not an option.");
 					}
-				
-			} else if (menuOption.contentEquals("7")) {
+					System.out.println("Sorry, that is not an option.");
+				}
+
+			} else if (menuOption.contentEquals("8")) {
 				System.out.println("Which pet would you like to adopt?");
 
 				String adoptedPet = input.nextLine();
@@ -121,34 +120,61 @@ public class VirtualPetShelterApp {
 				System.out.println("Thank you for adopting " + adoptedPet + ".");
 				myPets.remove(petToAdopt);
 
+				
+			} else if (menuOption.contentEquals("9")) {
+
+				System.out.println("What type of pet is it? \n Choices are: Cat, Dog, or Robo-pet");
+				String petType = input.nextLine();
+				
+				System.out.println("What would you like to name this new pet?");
+				String petName = input.nextLine();
+
+				
+				System.out.println("description:");
+				String petDescription = input.nextLine();   // to lower case - substring capitalize
+
+				if(petType.toLowerCase().contentEquals("cat")) {
+					VirtualPet petToIntake = new Cat(0, petName, petDescription, 0, 0, 0, 0, 0);
+					myPets.add(petToIntake);
+				}else if(petType.toLowerCase().contentEquals("dog")) {
+					VirtualPet petToIntake = new Dog(0, petName, petDescription, 0, 0, 0, 0, 0);
+					myPets.add(petToIntake);
+				}else if(petType.toLowerCase().contentEquals("robo-pet")) {
+					VirtualPet petToIntake = new RoboPet(0, petName, petDescription,0, 0);
+					myPets.add(petToIntake);
+				}System.out.println("Please specify a type of pet.");
+				
 			
+				System.out.println("Thanks! Nice to meet " + petName + " the " + petDescription + ".");
+
 			
-			
-			
-			}else{
+			}else if (menuOption.toLowerCase().contentEquals("quit")) {
+				System.out.println("Thank you for volunteering! Good-bye!");
+				break;	
+				
+			} else {
 
 				System.out.println("What?! Say that again.");
 				System.out.println("--- To see menu again, type \"help\". ---");
-
 			}
-		myPets.tickAllPets();
+			myPets.tickAllPets();
+
+		}
 
 		input.close();
-		}
-		
-		
 	}
 
 	private static void printMenu() {
 		System.out.println("1: Check status for all pets. (Hint: 0 = satisfied)");
 		System.out.println("2: See pet roster");
-		System.out.println("3: Feed pets");
-		System.out.println("4: Give water to pets");
-		System.out.println("5: Play with pets");
-		System.out.println("6: Clean up after the pets");
-		System.out.println("7: Adopt a pet");
-		System.out.println("8: Admit a new pet");
-		System.out.println("9: Quit");
+		System.out.println("3: Feed the organic pets");
+		System.out.println("4: Give water to organic pets");
+		System.out.println("5: Oil the robo-pets");
+		System.out.println("6: Play with pets");
+		System.out.println("7: Clean up after the pets");
+		System.out.println("8: Adopt a pet");
+		System.out.println("9: Admit a new pet");
+		System.out.println("Quit");
 		System.out.println("--- To see menu again, type \"help\". ---");
 
 	}
