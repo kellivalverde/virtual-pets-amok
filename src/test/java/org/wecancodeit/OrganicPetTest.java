@@ -2,7 +2,6 @@ package org.wecancodeit;
 //Mod 4: Virtual Pets Amok
 
 import static org.junit.Assert.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,38 +19,38 @@ class OrganicPetTest {
 
 	@Test
 	public void hungerShouldBe0AfterFeed() {
-		// act
-		// int beforeFeed = underTest.getHunger();
-		underTest.feed(); // void - just eats
+		
+		underTest.feed(); 
 		int result = underTest.getHunger();
-		// assert
+		
 		assertEquals(0, result);
 
 	}
 
 	@Test
 	public void thirstShouldBe0AtStart() {
-		// act
+		
 		int result = underTest.getThirst(); // makes a method in VP2 class
-		// assert
+		
 		assertEquals(0, result);
 
 	}
 
 	@Test
 	public void thirstShouldBe0AfterGiveWater() {
-		// act
-		int beforeGiveWater = underTest.getThirst();
+		
+		underTest.play();
+		underTest.tick();
 		underTest.giveWater(); // void - just eats
 		int result = underTest.getThirst();
-		// assert
+		
 		assertEquals(0, result);
 
 	}
 
 	@Test
 	public void thirstShouldIncreaseBy1AfterPlay() {
-		// Act
+		
 		int beforePlay = underTest.getThirst();
 		underTest.play();
 		int result = underTest.getThirst();
@@ -60,55 +59,48 @@ class OrganicPetTest {
 
 	@Test
 	public void boredomShouldBe0AtStart() {
-		// act
+		
 		int result = underTest.getBoredom(); // makes a method in VP2 class
-		// assert
+		
 		assertEquals(0, result);
 	}
 
 	@Test
 	public void boredomShouldBe0AfterPlay() {
-		// act
-//		int beforePlay = underTest.getBoredom();
-//		underTest.play(); // void - just eats
+		
 		int result = underTest.getBoredom();
-		// assert
-		assertEquals(0, result);
+			assertEquals(0, result);
 
 	}
 
 	@Test
 	public void poopLevelShouldStartAt0() {
-		// act
 		int result = underTest.getPoop();
-		// assert
 		assertEquals(0, result);
 	}
 
 	@Test
 	public void poopLevelShouldBe0AfterCleanPoop() {
-		// act
 		underTest.goPoop();
 		int result = underTest.getPoop();
-		// assert
 		assertEquals(0, result);
 
 	}
 
 	@Test
 	public void hungerShouldIncreaseBy1AfterTick() {
-		// Act
+		
 		int beforeTick = underTest.getHunger();
 		underTest.tick();
 		int result = underTest.getHunger();
 
-		// assert
+		
 		assertEquals(beforeTick + 1, result);
 	}
 
 	@Test
 	public void thirstShouldIncreaseBy1AfterTick() {
-		// Act
+		
 		int beforeTick = underTest.getThirst();
 		underTest.tick();
 		int result = underTest.getThirst();
@@ -117,7 +109,7 @@ class OrganicPetTest {
 
 	@Test
 	public void boredomShouldIncreaseBy1AfterTick() {
-		// Act
+		
 		int beforeTick = underTest.getBoredom();
 		underTest.tick();
 		int result = underTest.getBoredom();
@@ -126,7 +118,7 @@ class OrganicPetTest {
 
 	@Test
 	public void poopShouldIncreaseBy1AfterTick() {
-		// Act
+		
 		int beforeTick = underTest.getPoop();
 		underTest.tick();
 		int result = underTest.getPoop();
@@ -135,7 +127,7 @@ class OrganicPetTest {
 
 	@Test
 	public void poopShouldIncreaseBy1AfterFeed() {
-		// Act
+		
 		int beforeFeed = underTest.getPoop();
 		underTest.feed();
 		int result = underTest.getPoop();
@@ -144,7 +136,7 @@ class OrganicPetTest {
 
 	@Test
 	public void healthShouldIncreaseBy1AfterFeed() {
-		// Act
+		
 		int beforeFeed = underTest.getHealth();
 		underTest.feed();
 		int result = underTest.getHealth();
@@ -153,7 +145,7 @@ class OrganicPetTest {
 	
 	@Test
 	public void healthShouldIncreaseBy1AfterWater() {
-		// Act
+		
 		int beforeWater = underTest.getHealth();
 		underTest.giveWater();
 		int result = underTest.getHealth();
@@ -162,7 +154,7 @@ class OrganicPetTest {
 	
 	@Test
 	public void healthShouldIncreaseBy1AfterPlay() {
-		// Act
+		
 		int beforePlay = underTest.getHealth();
 		underTest.play();
 		int result = underTest.getHealth();

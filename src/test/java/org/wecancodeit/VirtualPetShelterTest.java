@@ -1,10 +1,7 @@
 package org.wecancodeit;
 //Mod 4 : Virtual Pets Amok
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
@@ -58,12 +55,11 @@ public class VirtualPetShelterTest {
 
 	// should return a specific pet given it's name (pet descriptions?)
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void shouldReturnAPetByName() {
 		underTest.add(pet1);
 		VirtualPet retrievedAccount = underTest.findPet("Cleo");
-		assertThat(retrievedAccount, is(pet1));
+		assertEquals(retrievedAccount, (pet1));
 
 	}
 
@@ -79,7 +75,6 @@ public class VirtualPetShelterTest {
 
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 
-		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
 		assertEquals(4, allPets.size());
 
 	}
@@ -96,7 +91,6 @@ public class VirtualPetShelterTest {
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 		Collection<OrganicPet> orgPets = underTest.getAllOrganicPets();
 
-		// assertThat(allAccounts, containsInAnyOrder(account1,account2));
 		assertEquals(3, orgPets.size());
 		assertEquals(4, allPets.size());
 
@@ -188,7 +182,6 @@ public class VirtualPetShelterTest {
 	}
 
 // how to tell if litterBox isDirty
-
 	public void shouldCheckIfLitterBoxIsDirty() {
 		underTest.add(pet1);
 		underTest.add(pet3);

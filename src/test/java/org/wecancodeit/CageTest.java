@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class CageTest {
 
-	private Cage cage = new Cage();
-
+	
 	Dog underTest = new Dog(3, "Name", "description", 10, 0, 0, 0, 0);
 
 	@Test
