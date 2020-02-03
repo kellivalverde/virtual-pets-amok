@@ -142,4 +142,30 @@ class OrganicPetTest {
 		assertEquals(beforeFeed + 1, result);
 	}
 
+	@Test
+	public void healthShouldIncreaseBy1AfterFeed() {
+		// Act
+		int beforeFeed = underTest.getHealth();
+		underTest.feed();
+		int result = underTest.getHealth();
+		assertEquals(beforeFeed + 1, result);
+	}
+	
+	@Test
+	public void healthShouldIncreaseBy1AfterWater() {
+		// Act
+		int beforeWater = underTest.getHealth();
+		underTest.giveWater();
+		int result = underTest.getHealth();
+		assertEquals(beforeWater + 1, result);
+	}
+	
+	@Test
+	public void healthShouldIncreaseBy1AfterPlay() {
+		// Act
+		int beforePlay = underTest.getHealth();
+		underTest.play();
+		int result = underTest.getHealth();
+		assertEquals(beforePlay + 1, result);
+	}
 }
