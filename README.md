@@ -69,6 +69,24 @@ In addition to the last project’s requirements:
 - clean the shelter litterbox
 - oil all robotic pets
 
+## My Class Structure
+
+                              VirtualPet
+                                 |
+                _________________|_________________
+               /                                   \
+              /                                     \
+        OrganicPet                               RoboPet  <- implements Walkable
+        |       |   
+        Cat     Dog <- implements Walkable
+        ^        ^        
+        |        |
+        |        uses Cage (implements PetToilet...because accidents happen)
+        |
+        uses LitterBox (implements PetToilet)
+
+
+
 ## Tips
 
 - Remember: don’t get caught up in the user interface at first. Focus on shelter/pet behavior. Try to get one thing working at a time.
