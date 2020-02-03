@@ -19,10 +19,10 @@ public class VirtualPetShelterApp {
 		myPets.add(pet1);
 		myPets.add(pet2);
 		myPets.add(pet3);
-
-		System.out.println("Welcome to the WCCI Pet Shelter!" + "\n\nHome for cats, dogs and wayward robo-pets");
-		System.out.println("\n********************************************** \n");
-
+		
+		printGreeting();
+		
+		System.out.println("Here is a list of things to do around the shelter: \n");		
 		printMenu();
 
 		while (true) {
@@ -39,7 +39,7 @@ public class VirtualPetShelterApp {
 
 				System.out.println("\nStatus for all pets: ");
 
-				System.out.println("Name \t| Health | Hunger| Thirst|Boredom| Poop  | Rust Level");
+				System.out.println("Name   \t| Health | Hunger| Thirst|Boredom| Poop  | Rust Level");
 				System.out.println("---------------------------------------------------------------");
 
 				Collection<VirtualPet> petStats = myPets.getAllPets();
@@ -47,14 +47,14 @@ public class VirtualPetShelterApp {
 				for (VirtualPet currentPet : petStats) {
 
 					if (currentPet instanceof OrganicPet) {
-						System.out.println(currentPet.getPetName() + "\t|  " + currentPet.getHealth() + "\t | "
-								+ ((OrganicPet) currentPet).getHunger() + "\t |  "
-								+ ((OrganicPet) currentPet).getThirst() + "\t |  "
-								+ ((OrganicPet) currentPet).getBoredom() + "\t |  "
+						System.out.println(currentPet.getPetName() + "\t|   " + currentPet.getHealth() + "\t |   "
+								+ ((OrganicPet) currentPet).getHunger() + "\t |   "
+								+ ((OrganicPet) currentPet).getThirst() + "\t |   "
+								+ ((OrganicPet) currentPet).getBoredom() + "\t |   "
 								+ ((OrganicPet) currentPet).getPoop() + "\t |   -   ");
 						// continue;
 					} else if (currentPet instanceof RoboPet) {
-						System.out.println(currentPet.getPetName() + "\t|  " + currentPet.getHealth()
+						System.out.println(currentPet.getPetName() + "\t|   " + currentPet.getHealth()
 								+ "\t |   -   |   -   |   -   |   -   |   "
 
 								+ ((RoboPet) currentPet).getRustLevel());
@@ -148,7 +148,7 @@ public class VirtualPetShelterApp {
 				System.out.println("Thanks! Nice to meet " + petName + " the " + petDescription + ".");
 
 			
-			}else if (menuOption.toLowerCase().contentEquals("quit")) {
+			}else if (menuOption.contentEquals("10")) {
 				System.out.println("Thank you for volunteering! Good-bye!");
 				break;	
 				
@@ -164,6 +164,16 @@ public class VirtualPetShelterApp {
 		input.close();
 	}
 
+	private static void printGreeting() {
+		System.out.println("\n**********************************************");
+		System.out.println("*                                            *");
+		System.out.println("*     Welcome to the WCCI Pet Shelter!       *"
+						 + "\n* Home for cats, dogs, and wayward robo-pets *");
+		System.out.println("*                                            *");
+		System.out.println("********************************************** \n");
+		
+	}
+
 	private static void printMenu() {
 		System.out.println("1: Check status for all pets. (Hint: 0 = satisfied)");
 		System.out.println("2: See pet roster");
@@ -174,7 +184,7 @@ public class VirtualPetShelterApp {
 		System.out.println("7: Clean up after the pets");
 		System.out.println("8: Adopt a pet");
 		System.out.println("9: Admit a new pet");
-		System.out.println("Quit");
+		System.out.println("10: Leave");
 		System.out.println("--- To see menu again, type \"help\". ---");
 
 	}

@@ -46,14 +46,13 @@ public class VirtualPetShelterTest {
 
 // allow adoption(remove pet)
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void shouldBeAbleToRemoveAPet() {
 		underTest.add(pet1);
 		underTest.add(pet2);
 		underTest.remove(pet2);
 		VirtualPet retrievedAccount = underTest.findPet("Rigby");
-		assertThat(retrievedAccount, is(nullValue()));
+		assertEquals(retrievedAccount, null);
 
 	}
 

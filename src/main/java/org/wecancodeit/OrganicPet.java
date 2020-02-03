@@ -1,8 +1,6 @@
 package org.wecancodeit;
 //Mod 4: Virtual Pets Amok
 
-import java.util.Collection;
-
 public class OrganicPet extends VirtualPet {
 
 	private int hunger = 0;
@@ -26,6 +24,7 @@ public class OrganicPet extends VirtualPet {
 	public void feed() {
 		hunger = 0;
 		poop++;
+		addHealth();		
 	}
 
 	// thirst
@@ -35,6 +34,8 @@ public class OrganicPet extends VirtualPet {
 
 	public void giveWater() {
 		thirst = 0;
+		addHealth();
+		
 	}
 
 	// poop level
@@ -42,8 +43,10 @@ public class OrganicPet extends VirtualPet {
 		return poop;
 	}
 
-	public void cleanPoop() {
+	public void goPoop() {
 		poop = 0;
+		addHealth();
+
 	}
 
 	// boredom
@@ -54,6 +57,9 @@ public class OrganicPet extends VirtualPet {
 	public void play() {
 		boredom = 0;
 		thirst++;
+		addHealth();
+
+
 	}
 
 	@Override
@@ -62,13 +68,7 @@ public class OrganicPet extends VirtualPet {
 		thirst++;
 		poop++;
 		boredom++;
+		lowerHealth();
 	}
 
-//	public Collection<OrganicPet> getAllOrganicPets() {
-//		return orgPets.values();
-//	}
-//	public int getBoredomForPet(String petName) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 }

@@ -88,7 +88,7 @@ class OrganicPetTest {
 	@Test
 	public void poopLevelShouldBe0AfterCleanPoop() {
 		// act
-		underTest.cleanPoop();
+		underTest.goPoop();
 		int result = underTest.getPoop();
 		// assert
 		assertEquals(0, result);

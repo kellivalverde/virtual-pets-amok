@@ -43,5 +43,6 @@ public abstract class VirtualPet {
 	// tick() method for all? --> defined within classes
 	// details defined by subclasses because they need different things
 	public abstract void tick();
-
+	
+					
 }

@@ -27,7 +27,6 @@ public class Cage implements PetToilet { // shouldn't be a toilet, but sometimes
 	}
 
 	
-
 	@Override
 	public void clean() {
 		poopLevel = DEFAULT_POOP_LEVEL;

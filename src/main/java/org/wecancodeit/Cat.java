@@ -22,7 +22,7 @@ public class Cat extends OrganicPet {
 			lowerHealth();  
 		}
 		litterBox.addPoop(getPoop()); // adds amount from each individual cat
-		cleanPoop(); // sets it back to 0 (inside the cat)
+		goPoop(); // sets it back to 0 (inside the cat)
 				
 	}
 
@@ -37,6 +37,5 @@ public class Cat extends OrganicPet {
 
 	public void playWithLaser() {
 		play();
-		addHealth();
 	}
 }

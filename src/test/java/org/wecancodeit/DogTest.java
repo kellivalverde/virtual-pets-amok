@@ -43,5 +43,4 @@ class DogTest {
 		assertEquals(healthLevel, beforeWalk + 1);
 
 	}
-
 }
